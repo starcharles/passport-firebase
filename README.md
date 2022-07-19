@@ -1,4 +1,4 @@
-Passport Firebase
+# Passport Firebase
 
 ### TODO
  - [ ] add docs
