@@ -12,6 +12,11 @@
     "lint": "eslint \"{lin,tests}/**/*.ts\" --fix && prettier --write \"{lib,tests}/**/*.ts\"",
     "semantic-release": "semantic-release"
   },
+  "homepage": "https://github.com/starcharles/passport-firebase",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/starcharles/passport-firebase"
+  },
   "dependencies": {
     "@types/passport-jwt": "^3.0.6",
     "jwks-rsa": "^2.1.4",
