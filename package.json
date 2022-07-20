@@ -1,24 +1,50 @@
 {
   "name": "passport-firebase",
   "version": "1.0.0",
-  "main": "./lib",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.tx",
   "license": "MIT",
-  "devDependencies": {
-    "@types/express": "^4.17.13",
-    "@typescript-eslint/eslint-plugin": "^5.30.6",
-    "@typescript-eslint/parser": "^5.30.6",
-    "eslint": "^7.32.0 || ^8.2.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-prettier": "^4.2.1",
-    "express": "^4.18.1",
-    "passport": "^0.6.0",
-    "prettier": "^2.7.1",
-    "typescript": "^4.7.4"
+  "author": "Naoto Sato <stardustforever012@gmail.com>",
+  "description": "passport strategy for firebase authentication",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "test": "jest -i --coverage",
+    "lint": "eslint \"{lin,tests}/**/*.ts\" --fix && prettier --write \"{lib,tests}/**/*.ts\"",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@types/passport-jwt": "^3.0.6",
     "jwks-rsa": "^2.1.4",
     "passport-jwt": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jest": "^28.1.6",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "express": "^4.18.1",
+    "jest": "^28.1.3",
+    "passport": "^0.6.0",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^19.0.3",
+    "ts-jest": "^28.0.7",
+    "typescript": "^4.7.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "ts"
+    ],
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node"
   }
 }

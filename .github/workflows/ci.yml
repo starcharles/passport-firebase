@@ -1,0 +1,38 @@
+name: CI
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+        node: [ '14', '16' ]
+    runs-on: ${{matrix.os}}
+    name: Build and Test(Node ${{ matrix.node }} on ${{ matrix.os }})
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'yarn'
+      - name: install dependencies
+        run: yarn install
+      - name: lint
+        run: yarn lint
+      - name: build
+        run: yarn build
+      - name: test
+        run: yarn test
+      - name: Show coverage in comments
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: hayuna/jest-reporter-action@v0.1.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          test-command: npm test -- --coverage --coverageDirectory ./coverage
