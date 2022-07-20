@@ -11,8 +11,10 @@ yarn add passport-firebase
 ```
 
 ## How to Use
+(*) For detailed implementations, see /examples folder
 ### In Express
 
+ 
 #### 1. Initialize
 An example configuration which reads the JWT from the http
 Authorization header with the scheme 'bearer':
