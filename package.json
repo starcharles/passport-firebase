@@ -2,7 +2,7 @@
   "name": "passport-firebase",
   "version": "1.0.2",
   "main": "./dist/lib/index.js",
-  "types": "./dist/lib/index.d.tx",
+  "types": "./dist/lib/index.d.ts",
   "license": "MIT",
   "author": "Naoto Sato <stardustforever012@gmail.com>",
   "description": "passport strategy for firebase authentication",
