@@ -1,6 +1,6 @@
 {
   "name": "passport-firebase",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "./dist/lib/index.js",
   "types": "./dist/lib/index.d.ts",
   "license": "MIT",
