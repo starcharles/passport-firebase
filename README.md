@@ -1,6 +1,8 @@
 # Passport Firebase
+This Library added feature to support firebase jwt authentication.
+Based on [passport-jwt](https://github.com/mikenicholson/passport-jwt).
 
-## install 
+## Install 
 
 ```
 npm install passport-firebase 
@@ -9,7 +11,9 @@ yarn add passport-firebase
 ```
 
 ## How to Use
+### In Express
 
+#### 1. Initialize
 An example configuration which reads the JWT from the http
 Authorization header with the scheme 'bearer':
 
@@ -35,7 +39,7 @@ passport.use(new FirebaseStrategy(opts, function(jwt_payload, done) {
 }));
 ```
 
-### Authenticate requests
+#### 2. Authenticate requests
 
 Use `passport.authenticate()` specifying `'firebase'` as the strategy.
 
@@ -45,6 +49,48 @@ app.post('/profile', passport.authenticate('firebase', { session: false }),
         res.send(req.user.profile);
     }
 );
+```
+
+### In NestJS
+
+- firebase.strategy.ts
+```js
+import { Injectable } from '@nestjs/common';
+import { PassportStrategy } from '@nestjs/passport';
+import { Strategy } from 'passport-firebase';
+
+@Injectable()
+export class FirebaseStrategy extends PassportStrategy(Strategy) {
+  constructor() {
+    super({
+      issuer: 'https://securetoken.google.com/<YOUT_PROJECT_ID>',
+      audience: '<YOUT_PROJECT_ID>',
+    });
+  }
+
+  async validate(payload: any) {
+    return payload;
+  }
+}
+
+```
+
+- firebase-auth.guard.ts
+
+```js
+@Injectable()
+export class FirebaseAuthGuard extends AuthGuard('firebase') {}
+```
+
+- controller.ts
+
+```js
+  @UseGuards(FirebaseAuthGuard)
+  @Get('auth')
+  getAuth(@Req() req: any): void {
+    // user info can get by `req.user`
+    console.log(req.user); 
+  }
 ```
 
 ### Include the JWT in requests
@@ -59,7 +105,3 @@ app.post('/profile', passport.authenticate('firebase', { session: false }),
 The [MIT License](http://opensource.org/licenses/MIT)
 
 Copyright (c) 2022 Naoto Sato
-
-### TODO
- - [ ] add docs
- - [ ] add tests
