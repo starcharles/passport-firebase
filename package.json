@@ -1,15 +1,15 @@
 {
   "name": "passport-firebase",
-  "version": "0.0.0-development",
-  "main": "./dist/lib/index.js",
-  "types": "./dist/lib/index.d.ts",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "license": "MIT",
   "author": "Naoto Sato <stardustforever012@gmail.com>",
   "description": "passport strategy for firebase authentication",
   "scripts": {
-    "build": "rimraf ./dist && tsc",
+    "build": "rimraf ./dist && tsc -p tsconfig.build.json",
     "test": "jest -i --coverage",
-    "lint": "eslint \"{lin,tests}/**/*.ts\" --fix && prettier --write \"{lib,tests}/**/*.ts\"",
+    "lint": "eslint \"{lib,tests}/**/*.ts\" --fix && prettier --write \"{lib,tests}/**/*.ts\"",
     "semantic-release": "semantic-release"
   },
   "homepage": "https://github.com/starcharles/passport-firebase",
@@ -29,6 +29,7 @@
     "@typescript-eslint/parser": "^5.30.6",
     "eslint": "^8.20.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.2.1",
     "express": "^4.18.1",
@@ -49,7 +50,13 @@
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
+    "testPathIgnorePatterns": ["./examples"],
     "coverageDirectory": "./coverage",
     "testEnvironment": "node"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   }
 }
