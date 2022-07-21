@@ -1,13 +1,13 @@
 {
   "name": "passport-firebase",
   "version": "0.0.1",
-  "main": "./dist/lib/index.js",
-  "types": "./dist/lib/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "license": "MIT",
   "author": "Naoto Sato <stardustforever012@gmail.com>",
   "description": "passport strategy for firebase authentication",
   "scripts": {
-    "build": "rimraf ./dist && tsc",
+    "build": "rimraf ./dist && tsc -p tsconfig.build.json",
     "test": "jest -i --coverage",
     "lint": "eslint \"{lib,tests}/**/*.ts\" --fix && prettier --write \"{lib,tests}/**/*.ts\"",
     "semantic-release": "semantic-release"
