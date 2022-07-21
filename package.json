@@ -9,7 +9,7 @@
   "scripts": {
     "build": "rimraf ./dist && tsc",
     "test": "jest -i --coverage",
-    "lint": "eslint \"{lin,tests}/**/*.ts\" --fix && prettier --write \"{lib,tests}/**/*.ts\"",
+    "lint": "eslint \"{lib,tests}/**/*.ts\" --fix && prettier --write \"{lib,tests}/**/*.ts\"",
     "semantic-release": "semantic-release"
   },
   "homepage": "https://github.com/starcharles/passport-firebase",
@@ -29,6 +29,7 @@
     "@typescript-eslint/parser": "^5.30.6",
     "eslint": "^8.20.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.2.1",
     "express": "^4.18.1",
@@ -53,6 +54,8 @@
     "testEnvironment": "node"
   },
   "release": {
-    "branches": ["main"]
+    "branches": [
+      "main"
+    ]
   }
 }
