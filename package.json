@@ -23,6 +23,8 @@
     "passport-jwt": "^4.0.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
     "@types/express": "^4.17.13",
     "@types/jest": "^28.1.6",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
@@ -50,10 +52,18 @@
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
-    "testPathIgnorePatterns": ["./examples"],
+    "testPathIgnorePatterns": [
+      "./examples"
+    ],
     "coverageDirectory": "./coverage",
     "testEnvironment": "node"
   },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ],
   "release": {
     "branches": [
       "main"
