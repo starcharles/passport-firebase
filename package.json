@@ -50,6 +50,7 @@
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
+    "testPathIgnorePatterns": ["./examples"],
     "coverageDirectory": "./coverage",
     "testEnvironment": "node"
   },
