@@ -1,4 +1,6 @@
 .idea
+.github
+examples
 node_modules
 coverage
 tests
